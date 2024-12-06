@@ -1,0 +1,11 @@
+li a {
+  font-size: 1rem;
+  font-weight: 500;
+  transition: 0.1s all ease;
+}
+
+.horizontal-list a:hover {
+  background-color: inherit !important;
+  text-decoration: underline;
+  transform: translateY(5px);
+}
