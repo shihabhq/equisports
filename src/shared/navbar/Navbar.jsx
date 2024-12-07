@@ -3,7 +3,7 @@ import ThemeToggle from "./themeToggle";
 
 const Navbar = () => {
   return (
-    <div className="sticky top-0 left-0 bg-base-100">
+    <div className="navbar sticky top-0 left-0 bg-base-100 z-50">
       <div className="navbar bg-base-100 w-[95%] mx-auto max-w-[1360px] py-4 rounded-sm">
         <div className="navbar-start">
           <div className="dropdown">
@@ -24,7 +24,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-1">
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-1">
               <li>
                 <a className="py-2 text-base">Home</a>
               </li>

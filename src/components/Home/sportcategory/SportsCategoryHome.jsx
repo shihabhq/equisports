@@ -11,26 +11,32 @@ const categories = [
   {
     image: cycle,
     text: "Exercise Cycle",
+    delay: 0,
   },
   {
     image: dumbell,
     text: "Dumbells",
+    dellay: 100,
   },
   {
     image: gymEquipment,
     text: "Gym Equipments",
+    delay: 200,
   },
   {
     image: outdoor,
     text: "Outdoor Kits",
+    delay: 250,
   },
   {
     image: sneaker,
     text: "Sneakers",
+    delay: 300,
   },
   {
     image: sportswear,
     text: "Sportswear",
+    delay: 400,
   },
 ];
 
@@ -45,6 +51,7 @@ const SportsCategoryHome = () => {
               key={idx}
               image={category.image}
               text={category.text}
+              delay={category.delay}
             />
           );
         })}
