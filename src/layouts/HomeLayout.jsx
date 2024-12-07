@@ -7,12 +7,12 @@ const HomeLayout = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      <main className="flex-grow w-[95%] lg:w-[80%] mx-auto">
+      <main className="flex-grow w-full  mx-auto">
         <Outlet />
       </main>
       <Footer />
     </div>
   );
 };
-
+//w-[95%] lg:w-[80%]
 export default HomeLayout;

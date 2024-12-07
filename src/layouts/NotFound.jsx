@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../shared/navbar/Navbar";
 import Footer from "../shared/Footer";
 

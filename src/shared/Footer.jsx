@@ -4,7 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral text-neutral-content flex flex-col items-center gap-4 justify-center pb-8 pt-12 px-10">
+    <footer className="bg-neutral text-neutral-content flex flex-col items-center gap-4 justify-center pb-8 pt-12 px-10 mt-24">
       <a href="/" className="text-4xl font-bold">
         EquiSports<span className="text-cyan-400">.</span>
       </a>
@@ -43,10 +43,10 @@ const Footer = () => {
       </div>
       <div>
         <p>
-          <p>
+          <span>
             Copyright © {new Date().getFullYear()} - All right reserved by ACME
             Industries Ltd
-          </p>
+          </span>
         </p>
       </div>
     </footer>
