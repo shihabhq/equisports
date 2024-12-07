@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { loginUser, loginWithGoogle, user, setUser, loading, setLoading } =
+  const { loginUser, loginWithGoogle, user, setUser, setLoading } =
     useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -76,7 +76,7 @@ const Login = () => {
         <h1 className="text-2xl font-bold text-center mb-4 text-black">
           Login
         </h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <Input
             value={email}
             changeVal={setEmail}
@@ -113,19 +113,18 @@ const Login = () => {
           </div>
 
           <button
-            onClick={handleSubmit}
             type="submit"
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Login
           </button>
           <p className="text-center my-2 text-lg">or</p>
-          <button
-            onClick={handleGoogleLogin}
-            className="flex gap-2 items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            <img src={google} className="border-none w-5" alt="" />
-            Continue with Google
-          </button>
         </form>
+        <button
+          onClick={handleGoogleLogin}
+          className="flex gap-2 items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <img src={google} className="border-none w-5" alt="" />
+          Continue with Google
+        </button>
       </div>
     </div>
   );
