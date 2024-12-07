@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const userLogin = (email, password) => {
+  const loginUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
@@ -34,6 +34,7 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
   const updateUserProfile = (updatedData) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, updatedData);
   };
 
@@ -49,7 +50,7 @@ const AuthProvider = ({ children }) => {
     createNewUser,
     loginWithGoogle,
     logOut,
-    userLogin,
+    loginUser,
     loading,
     updateUserProfile,
   };

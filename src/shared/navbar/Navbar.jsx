@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./navbar.css";
 import ThemeToggle from "./themeToggle";
 
@@ -26,23 +27,35 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-1">
               <li>
-                <a className="py-2 text-base">Home</a>
+                <Link to="/" className="py-2 text-base">
+                  Home
+                </Link>
               </li>
               <li>
-                <a className="py-2 text-base">My Equipments</a>
+                <Link to={"/my-products"} className="py-2 text-base">
+                  My Equipments
+                </Link>
               </li>
               <li>
-                <a className="py-2 text-base">Add Equipment</a>
+                <Link to={"/add-product"} className="py-2 text-base">
+                  Add Equipment
+                </Link>
               </li>
               <li>
-                <a className="py-2 text-base">All Sports Equipment</a>
+                <Link to="/products" className="py-2 text-base">
+                  All Sports Equipment
+                </Link>
               </li>
-              <a className="btn bg-info text-white hover:bg-info font-semibold sm:hidden hover:underline">
+              <Link
+                to={"/auth/login"}
+                className="btn bg-info text-white hover:bg-info font-semibold sm:hidden hover:underline">
                 Login
-              </a>
-              <a className="btn sm:hidden bg-black text-white font-semibold hover:bg-[#080c0e]">
+              </Link>
+              <Link
+                to={"/auth/register"}
+                className="btn sm:hidden bg-black text-white font-semibold hover:bg-[#080c0e]">
                 Register
-              </a>
+              </Link>
             </ul>
           </div>
           <a className="cursor-pointer text-3xl font-bold">
@@ -52,26 +65,30 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li className="horizontal-list">
-              <a>Home</a>
+              <Link to={"/"}>Home</Link>
             </li>
             <li className="horizontal-list">
-              <a>My Equipments</a>
+              <Link to={"/my-products"}>My Equipments</Link>
             </li>
             <li className="horizontal-list">
-              <a>Add Equipment</a>
+              <Link to={"/add-product"}>Add Equipment</Link>
             </li>
             <li className="horizontal-list">
-              <a>All Sports Equipment</a>
+              <Link to={"/products"}>All Sports Equipment</Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end gap-4">
-          <a className="btn bg-info hidden sm:inline-flex text-white hover:bg-info font-semibold hover:underline">
+          <Link
+            to={"/auth/login"}
+            className="btn bg-info hidden sm:inline-flex text-white hover:bg-info font-semibold hover:underline">
             Login
-          </a>
-          <a className="btn hidden sm:inline-flex bg-black text-white font-semibold hover:bg-[#080c0e]">
+          </Link>
+          <Link
+            to={"/auth/register"}
+            className="btn hidden sm:inline-flex bg-black text-white font-semibold hover:bg-[#080c0e]">
             Register
-          </a>
+          </Link>
           <ThemeToggle />
         </div>
       </div>
