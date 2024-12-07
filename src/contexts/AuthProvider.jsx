@@ -52,6 +52,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     loginUser,
     loading,
+    setLoading,
     updateUserProfile,
   };
   useEffect(() => {

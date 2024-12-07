@@ -7,3 +7,9 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px white inset !important; /* Sets the background to white */
+  -webkit-text-fill-color: black !important; /* Ensures text color is black */
+  transition: background-color 5000s ease-in-out 0s; /* Prevents flashing effect */
+}
