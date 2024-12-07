@@ -2,7 +2,7 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import JerseaySlider from "./sliders/JerseaySlider";
 import MotivatingSlider from "./sliders/MotivatingSlider";
 import SneakerSlider from "./sliders/SneakerSlider";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
