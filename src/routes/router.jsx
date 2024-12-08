@@ -21,6 +21,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+        loader:()=> fetch('http://localhost:5000/home-products')
       },
       {
         path: "/add-product",
@@ -44,11 +45,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:details",
-        element: <ViewDetails />,
+        element: (
+          <PrivateRoute>
+            <ViewDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/product-update/:id",
-        element: <UpdatePage />,
+        element: (
+          <PrivateRoute>
+            <UpdatePage />
+          </PrivateRoute>
+        ),
       },
     ],
   },

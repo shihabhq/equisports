@@ -1,7 +1,7 @@
 import google from "../assets/google.png";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../shared/Input";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 
@@ -181,13 +181,13 @@ const Register = () => {
             Login
           </button>
           <p className="text-center my-2 text-lg">or</p>
-          <button
-            onClick={handleGoogleRegistration}
-            className="flex gap-2 items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            <img src={google} className="border-none w-5" alt="" />
-            Register with Google
-          </button>
         </form>
+        <button
+          onClick={handleGoogleRegistration}
+          className="flex gap-2 items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <img src={google} className="border-none w-5" alt="" />
+          Register with Google
+        </button>
       </div>
     </div>
   );
