@@ -12,7 +12,7 @@ const EquipmentSingleRow = ({ product }) => {
       </th>
       <td className="px-6 py-4">{category}</td>
       <td className="px-6 py-4">{rating}</td>
-      <td className="px-6 py-4">{price}</td>
+      <td className="px-6 py-4">${price}</td>
 
       <td className="px-6 py-4">
         <a
