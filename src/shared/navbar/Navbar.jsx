@@ -38,7 +38,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to={"/my-products"} className="py-2 text-base">
-                  My Equipments
+                  My Equipments List
                 </Link>
               </li>
               <li>
@@ -101,7 +101,7 @@ const Navbar = () => {
               <Link to={"/"}>Home</Link>
             </li>
             <li className="horizontal-list">
-              <Link to={"/my-products"}>My Equipments</Link>
+              <Link to={"/my-products"}>My Equipment List</Link>
             </li>
             <li className="horizontal-list">
               <Link to={"/add-product"}>Add Equipment</Link>

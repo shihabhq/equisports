@@ -3,7 +3,6 @@ import HomeLayout from "../layouts/HomeLayout";
 import HomePage from "../pages/HomePage";
 import AddEquipmentPage from "../pages/AddEquipmentPage";
 import PrivateRoute from "./PrivateRoute";
-import MyEquipmentPage from "../pages/MyEquipmentPage";
 import AllEquipmentsPage from "../pages/AllEquipmentsPage";
 import ViewDetails from "../pages/ViewDetails";
 import UpdatePage from "../pages/UpdatePage";
@@ -22,7 +21,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-        loader: () => fetch("http://localhost:5000/home-products"),
+        loader: () =>
+          fetch("https://server-pi-lilac-98.vercel.app/home-products"),
       },
       {
         path: "/add-product",
@@ -43,7 +43,8 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: <AllEquipmentsPage />,
-        loader: () => fetch("http://localhost:5000/all-products"),
+        loader: () =>
+          fetch("https://server-pi-lilac-98.vercel.app/all-products"),
       },
       {
         path: "/product-details/:id",

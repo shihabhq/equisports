@@ -4,15 +4,21 @@ import { useParams } from "react-router-dom";
 import { FaBox, FaClock, FaStar } from "react-icons/fa";
 import Loading from "../shared/Loading";
 import useSpecificFetch from "../hooks/useSpecificFetch";
+import NotFound from "../layouts/NotFound";
+import Header from "../shared/Header";
 
 const ViewDetails = () => {
   const { id } = useParams();
-  const { product, loading } = useSpecificFetch(
-    `http://localhost:5000/product-details/${id}`
+  const { product, loading, error } = useSpecificFetch(
+    `https://server-pi-lilac-98.vercel.app/product-details/${id}`
   );
 
   if (loading) {
     return <Loading></Loading>;
+  }
+
+  if (error) {
+    return <Header text={error} />;
   }
 
   return (

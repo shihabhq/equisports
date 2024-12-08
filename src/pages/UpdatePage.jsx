@@ -5,13 +5,14 @@ import { toast } from "react-toastify";
 import useSpecificFetch from "../hooks/useSpecificFetch";
 import { useParams } from "react-router-dom";
 import Loading from "../shared/Loading";
+import Header from "../shared/Header";
 
 const UpdatePage = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
 
-  const { product, loading } = useSpecificFetch(
-    `http://localhost:5000/product-details/${id}`
+  const { product, loading, error } = useSpecificFetch(
+    `https://server-pi-lilac-98.vercel.app/product-details/${id}`
   );
 
   const [productName, setProductName] = useState("");
@@ -37,7 +38,7 @@ const UpdatePage = () => {
 
   const handleUpdateSubmit = (e) => {
     e.preventDefault();
-    if ( 
+    if (
       !processTime ||
       !productName ||
       !category ||
@@ -51,9 +52,9 @@ const UpdatePage = () => {
       toast.error("Pleas Fillup all the fields", { position: "top-center" });
       return;
     }
-    if (parseFloat(rating)>5) {
+    if (parseFloat(rating) > 5) {
       toast.error("Ratings cannot be more than 5", { position: "top-center" });
-      return    
+      return;
     }
     const product = {
       productName,
@@ -68,7 +69,7 @@ const UpdatePage = () => {
       email: user.email,
     };
 
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://server-pi-lilac-98.vercel.app/products/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -95,6 +96,9 @@ const UpdatePage = () => {
   };
   if (loading) {
     <Loading></Loading>;
+  }
+  if (error) {
+    return <Header text={"No Data Found To Update"} />;
   }
 
   return (

@@ -10,15 +10,16 @@ import "sweetalert2/src/sweetalert2.scss";
 
 const MyProductsTable = () => {
   const { user } = useContext(AuthContext);
-  const { products:initialProducts, loading, error } = useFetch(
-    "http://localhost:5000/my-products",
-    user.email
-  );
+  const {
+    products: initialProducts,
+    loading,
+    error,
+  } = useFetch("https://server-pi-lilac-98.vercel.app/my-products", user.email);
   const [products, setProducts] = useState(initialProducts || []);
-  
+
   useEffect(() => {
-    setProducts(initialProducts || [])
-  },[initialProducts])
+    setProducts(initialProducts || []);
+  }, [initialProducts]);
 
   if (loading) {
     return <Loading />;
@@ -26,7 +27,7 @@ const MyProductsTable = () => {
   if (error || products.length === 0) {
     return (
       <div className="flex flex-col gap-8 items-center my-20 justify-center">
-        <Header text={`You didn't add any product`} />
+        <Header text={`You Don't have any Product Added`} />
         <Link to={"/add-product"} className="btn btn-black text-lg">
           Add Products
         </Link>

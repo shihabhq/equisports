@@ -31,9 +31,9 @@ const AddEquipmentPage = () => {
       toast.error("Pleas Fillup all the fields", { position: "top-center" });
       return;
     }
-    if (parseFloat(rating)>5) {
+    if (parseFloat(rating) > 5) {
       toast.error("Ratings cannot be more than 5", { position: "top-center" });
-      return    
+      return;
     }
     const product = {
       productName,
@@ -48,7 +48,7 @@ const AddEquipmentPage = () => {
       email: user.email,
     };
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://server-pi-lilac-98.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -26,7 +26,7 @@ const ProductCard = ({
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete-product/${_id}`, {
+        fetch(`https://server-pi-lilac-98.vercel.app/delete-product/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -48,7 +48,7 @@ const ProductCard = ({
   };
 
   return (
-    <div className="card card-compact bg-base-100 max-w-96 shadow-xl justify-center mx-auto">
+    <div className="card card-compact bg-base-100 w-[100%] max-w-96 shadow-xl justify-center mx-auto">
       <figure>
         <div className="w-[250px] h-[250px] overflow-hidden rounded-lg">
           <img className="w-full h-full object-cover" src={image} />

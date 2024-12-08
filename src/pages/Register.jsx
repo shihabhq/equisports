@@ -1,7 +1,7 @@
 import google from "../assets/google.png";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../shared/Input";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 
@@ -16,7 +16,6 @@ const Register = () => {
     setLoading,
     loginWithGoogle,
     user,
-    setUser,
   } = useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -54,9 +53,10 @@ const Register = () => {
     }
 
     createNewUser(email, password)
-      .then((result) => {
-        const user = result.user;
-        setUser(user);
+      .then(() => {
+        toast.success("User Added Successfully", {
+          position: "top-center",
+        });
         updateUserProfile({ displayName: name, photoURL: photoUrl })
           .then(() => {
             navigate("/");
@@ -81,7 +81,7 @@ const Register = () => {
   const handleGoogleRegistration = () => {
     loginWithGoogle()
       .then(() => {
-        toast.success("Account Created Successfully", {
+        toast.success("Account added Successfully", {
           position: "top-center",
         });
         navigate("/");
@@ -178,7 +178,7 @@ const Register = () => {
             onClick={handleSubmit}
             type="submit"
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Login
+            Register
           </button>
           <p className="text-center my-2 text-lg">or</p>
         </form>

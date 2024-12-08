@@ -16,7 +16,6 @@ const useFetch = (url, email) => {
         } 
       } catch (error) {
         setError("No Products Found to Show", error);
-        console.log(error)
       } finally {
         setLoading(false);
       }
