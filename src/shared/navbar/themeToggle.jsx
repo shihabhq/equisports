@@ -5,7 +5,7 @@ import { ThemeContext } from "../../contexts/ThemeProvider";
 
 const ThemeToggle = () => {
   const { isDark, toggleTheme } = useContext(ThemeContext);
-  console.log(isDark);
+ 
   return (
     <label className="swap swap-rotate">
       {/* this hidden checkbox controls the state */}

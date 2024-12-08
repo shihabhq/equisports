@@ -11,6 +11,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NotFound from "../layouts/NotFound";
+import MyProductsTable from "../pages/MyProductsTable";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-        loader:()=> fetch('http://localhost:5000/home-products')
+        loader: () => fetch("http://localhost:5000/home-products"),
       },
       {
         path: "/add-product",
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
         path: "/my-products",
         element: (
           <PrivateRoute>
-            <MyEquipmentPage />
+            <MyProductsTable />
           </PrivateRoute>
         ),
       },
