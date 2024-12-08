@@ -23,14 +23,15 @@ const ProductCard = ({
           <h3 className="font-semibold text-xl">Price:${price}</h3>
           <h3 className="font-semibold text-xl flex items-center"> <FaStar /> {rating}</h3>
         </div>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">View Details</button>
+        <div className="card-actions justify-start grid grid-cols-2 mt-4 w-[95%] mx-auto">
+          
           {isPrivate && (
             <>
-              <button className="btn btn-info">update</button>
-              <button className="btn btn-primary">Delete</button>
+              <button className="btn text-base btn-success text-white">update</button>
+              <button className="btn text-base btn-error text-white">Delete</button>
             </>
           )}
+          <button className="btn btn-info col-span-2 text-base">View Details</button>
         </div>
       </div>
     </div>

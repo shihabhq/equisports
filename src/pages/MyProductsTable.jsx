@@ -17,11 +17,11 @@ const MyProductsTable = () => {
   if (loading) {
     return <Loading />;
   }
-  if (error) {
+  if (error || products.length === 0) {
     return (
-      <div className="flex flex-col gap-8 items-center justify-center">
-        <Header text={"You didn`t add any products"} />
-        <Link className="btn btn-black text-lg">Add Products</Link>
+      <div className="flex flex-col gap-8 items-center my-20 justify-center">
+        <Header text={`You didn't add any product`} />
+        <Link to={'/add-product'} className="btn btn-black text-lg">Add Products</Link>
       </div>
     );
   }
@@ -29,7 +29,7 @@ const MyProductsTable = () => {
   return (
     <div className="my-40 mx-auto w-[95%] lg:w-[80%] ">
       <Header text={"Your added Products:"} />
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
         {products?.map((product) => {
           return (
             <ProductCard
