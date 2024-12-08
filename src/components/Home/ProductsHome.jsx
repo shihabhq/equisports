@@ -4,8 +4,8 @@ import ProductCard from "../../shared/ProductCard";
 
 const ProductsHome = ({ products }) => {
   return (
-    <div className=" w-[95%] lg:w-[80%] mx-auto">
-      <div className="my-40">
+    <div className=" w-[95%] lg:w-[80%] mx-auto my-40">
+      <div className="">
         <Header text={"Featured Products"} />
       </div>
       {products && products.length > 0 ? (
@@ -13,7 +13,7 @@ const ProductsHome = ({ products }) => {
           {products.map((product) => {
             return (
               <ProductCard
-                key={product?.id}
+                key={product?._id}
                 description={product?.description}
                 image={product?.image}
                 isPrivate={false}
