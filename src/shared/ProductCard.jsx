@@ -67,9 +67,11 @@ const ProductCard = ({
         <div className="card-actions justify-start grid grid-cols-2 mt-4 w-[95%] mx-auto">
           {isPrivate && (
             <>
-              <button className="btn text-base btn-success text-white">
+              <Link
+                to={`/product-update/${_id}`}
+                className="btn text-base btn-success text-white">
                 update
-              </button>
+              </Link>
               <button
                 className="btn text-base btn-error text-white"
                 onClick={() => handleDelete(_id)}>

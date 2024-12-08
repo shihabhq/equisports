@@ -74,7 +74,7 @@ const AddEquipmentPage = () => {
     <div className="min-h-[80vh] flex items-center justify-center w-[95%] md:w-[80%] mx-auto text-black">
       <div className="bg-white  shadow-lg rounded-lg px-8 py-6 max-w-[45rem]">
         <h1 className="text-2xl font-bold text-center mb-4 text-black">
-          Add Products
+          Add Equipment
         </h1>
 
         <form onSubmit={handleSubmit}>
@@ -194,7 +194,7 @@ const AddEquipmentPage = () => {
               />
             </div>
             <div>
-              <button className="btn btn-black w-full text-base">
+              <button type="submit" className="btn btn-black w-full text-base">
                 Add Product
               </button>
             </div>

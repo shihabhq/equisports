@@ -1,10 +1,19 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Input from "../shared/Input";
 import { AuthContext } from "../contexts/AuthProvider";
 import { toast } from "react-toastify";
+import useSpecificFetch from "../hooks/useSpecificFetch";
+import { useParams } from "react-router-dom";
+import Loading from "../shared/Loading";
 
 const UpdatePage = () => {
+  const { id } = useParams();
   const { user } = useContext(AuthContext);
+
+  const { product, loading } = useSpecificFetch(
+    `http://localhost:5000/product-details/${id}`
+  );
+
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
@@ -14,6 +23,17 @@ const UpdatePage = () => {
   const [price, setPrice] = useState("");
   const [rating, setRating] = useState("");
   const [stock, setStock] = useState("");
+  useEffect(() => {
+    setProductName(product?.productName);
+    setCategory(product?.category);
+    setImage(product?.image);
+    setDescription(product?.description);
+    setCustomization(product?.customization);
+    setPrice(product?.price);
+    setRating(product?.rating);
+    setStock(product?.stock);
+    setProcessTime(product?.processTime)
+  }, [product]);
 
   const handleUpdateSubmit = (e) => {
     e.preventDefault();
@@ -69,12 +89,15 @@ const UpdatePage = () => {
         });
       });
   };
+  if (loading) {
+    <Loading></Loading>;
+  }
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center w-[95%] md:w-[80%] mx-auto text-black">
       <div className="bg-white  shadow-lg rounded-lg px-8 py-6 max-w-[45rem]">
         <h1 className="text-2xl font-bold text-center mb-4 text-black">
-          Add Products
+          Update Equipment
         </h1>
 
         <form onSubmit={handleUpdateSubmit}>
@@ -172,30 +195,30 @@ const UpdatePage = () => {
             />
           </div>
           <div>
-            <h1 className="text-start text-xl font-semibold">
-              Your information:
-            </h1>
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <Input
-                name={"emailread"}
-                placeholder={"Your email"}
-                value={user?.email}
-                text={"Your email"}
-                type={"text"}
-                readonly={true}
-              />
-              <Input
-                name={"nameread"}
-                placeholder={"Your name"}
-                value={user.displayName}
-                text={"Your name"}
-                type={"text"}
-                readonly={true}
-              />
-            </div>
             <div>
+              <h1 className="text-start text-xl font-semibold">
+                Your information:
+              </h1>
+              <div className="grid grid-cols-2 gap-4 mb-4">
+                <Input
+                  name={"emailread"}
+                  placeholder={"Your email"}
+                  value={user?.email}
+                  text={"Your email"}
+                  type={"text"}
+                  readonly={true}
+                />
+                <Input
+                  name={"nameread"}
+                  placeholder={"Your name"}
+                  value={user.displayName}
+                  text={"Your name"}
+                  type={"text"}
+                  readonly={true}
+                />
+              </div>
               <button className="btn btn-black w-full text-base">
-                Add Product
+                Update Product
               </button>
             </div>
           </div>
