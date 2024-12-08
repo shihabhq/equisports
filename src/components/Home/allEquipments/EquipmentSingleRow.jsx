@@ -1,8 +1,9 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const EquipmentSingleRow = ({ product }) => {
-  const { productName, category, price, rating } = product;
+  const { productName, category, price, rating, _id } = product;
   return (
     <tr className="bg-white border-b text-black dark:border-gray-700">
       <th
@@ -15,11 +16,11 @@ const EquipmentSingleRow = ({ product }) => {
       <td className="px-6 py-4">${price}</td>
 
       <td className="px-6 py-4">
-        <a
-          href="#"
+        <Link
+          to={`/product-details/${_id}`}
           className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
           View Details
-        </a>
+        </Link>
       </td>
     </tr>
   );

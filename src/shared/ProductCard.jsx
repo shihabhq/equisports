@@ -1,6 +1,7 @@
 import React from "react";
 import { CgArrowLongRight } from "react-icons/cg";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 
 const ProductCard = ({
@@ -76,9 +77,11 @@ const ProductCard = ({
               </button>
             </>
           )}
-          <button className="btn btn-info col-span-2 text-white text-base">
+          <Link
+            to={`/product-details/${_id}`}
+            className="btn btn-info col-span-2 text-white text-base">
             View Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>
