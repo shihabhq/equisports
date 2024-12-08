@@ -24,20 +24,20 @@ const UpdatePage = () => {
   const [rating, setRating] = useState("");
   const [stock, setStock] = useState("");
   useEffect(() => {
-    setProductName(product?.productName);
-    setCategory(product?.category);
-    setImage(product?.image);
-    setDescription(product?.description);
-    setCustomization(product?.customization);
-    setPrice(product?.price);
-    setRating(product?.rating);
-    setStock(product?.stock);
-    setProcessTime(product?.processTime)
+    setProductName(product?.productName ?? "");
+    setCategory(product?.category ?? "");
+    setImage(product?.image ?? "");
+    setDescription(product?.description ?? "");
+    setCustomization(product?.customization ?? "");
+    setPrice(product?.price ?? "");
+    setRating(product?.rating ?? "");
+    setStock(product?.stock ?? "");
+    setProcessTime(product?.processTime ?? "");
   }, [product]);
 
   const handleUpdateSubmit = (e) => {
     e.preventDefault();
-    if (
+    if ( 
       !processTime ||
       !productName ||
       !category ||
@@ -50,6 +50,10 @@ const UpdatePage = () => {
     ) {
       toast.error("Pleas Fillup all the fields", { position: "top-center" });
       return;
+    }
+    if (parseFloat(rating)>5) {
+      toast.error("Ratings cannot be more than 5", { position: "top-center" });
+      return    
     }
     const product = {
       productName,
@@ -64,7 +68,7 @@ const UpdatePage = () => {
       email: user.email,
     };
 
-    fetch("http://localhost:5000/products", {
+    fetch(`http://localhost:5000/products/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -73,7 +77,7 @@ const UpdatePage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast.success("Product added Successfully ", {
+        toast.success("Product Updated Successfully ", {
           position: "top-center",
         });
         setCategory("");
@@ -84,7 +88,7 @@ const UpdatePage = () => {
         setProcessTime("");
       })
       .catch((e) => {
-        toast.error("There was an error while adding product", {
+        toast.error("There was an error while updating product", {
           position: "top-center",
         });
       });
@@ -217,7 +221,7 @@ const UpdatePage = () => {
                   readonly={true}
                 />
               </div>
-              <button className="btn btn-black w-full text-base">
+              <button type="submit" className="btn btn-black w-full text-base">
                 Update Product
               </button>
             </div>

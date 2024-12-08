@@ -22,13 +22,13 @@ const ViewDetails = () => {
           <div className="md:w-1/2 h-96 md:h-auto">
             <img
               src={product?.image}
-              alt={product?.itemName}
+              alt={product?.productName}
               className="w-full h-full object-cover"
             />
           </div>
 
           <div className="md:w-1/2 p-8">
-            <h2 className="text-3xl font-bold mb-4">{product?.itemName}</h2>
+            <h2 className="text-3xl font-bold mb-4">{product?.productName}</h2>
             <p className="text-gray-600 mb-4">{product?.category}</p>
             <p className="text-xl font-semibold mb-4">
               Price:${product?.price}

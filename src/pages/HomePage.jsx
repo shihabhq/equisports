@@ -8,7 +8,6 @@ import ProductsHome from "../components/Home/ProductsHome";
 
 const HomePage = () => {
   const products = useLoaderData()
-  console.log(products.length)
   return (
     <div>
       <SlidersContainer />

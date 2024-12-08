@@ -31,6 +31,10 @@ const AddEquipmentPage = () => {
       toast.error("Pleas Fillup all the fields", { position: "top-center" });
       return;
     }
+    if (parseFloat(rating)>5) {
+      toast.error("Ratings cannot be more than 5", { position: "top-center" });
+      return    
+    }
     const product = {
       productName,
       category,
