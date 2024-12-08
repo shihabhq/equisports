@@ -1,14 +1,51 @@
 import React from "react";
+import { CgArrowLongRight } from "react-icons/cg";
 import { FaStar } from "react-icons/fa";
+import Swal from "sweetalert2/dist/sweetalert2.js";
 
 const ProductCard = ({
+  _id,
   isPrivate,
   description,
   itemName,
   image,
   price,
   rating,
+  products,
+  setProducts,
 }) => {
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/delete-product/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data?.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              const newProducts = products.filter(
+                (product) => product._id !== _id
+              );
+              setProducts(newProducts);
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div className="card card-compact bg-base-100 max-w-96 shadow-xl justify-center mx-auto">
       <figure>
@@ -21,17 +58,27 @@ const ProductCard = ({
         <p className="text-base">{description.slice(0, 120)}.....</p>
         <div className="flex items-center justify-start gap-8 mb-2">
           <h3 className="font-semibold text-xl">Price:${price}</h3>
-          <h3 className="font-semibold text-xl flex items-center"> <FaStar /> {rating}</h3>
+          <h3 className="font-semibold text-xl flex items-center">
+            {" "}
+            <FaStar /> {rating}
+          </h3>
         </div>
         <div className="card-actions justify-start grid grid-cols-2 mt-4 w-[95%] mx-auto">
-          
           {isPrivate && (
             <>
-              <button className="btn text-base btn-success text-white">update</button>
-              <button className="btn text-base btn-error text-white">Delete</button>
+              <button className="btn text-base btn-success text-white">
+                update
+              </button>
+              <button
+                className="btn text-base btn-error text-white"
+                onClick={() => handleDelete(_id)}>
+                Delete
+              </button>
             </>
           )}
-          <button className="btn btn-info col-span-2 text-base">View Details</button>
+          <button className="btn btn-info col-span-2 text-white text-base">
+            View Details
+          </button>
         </div>
       </div>
     </div>
