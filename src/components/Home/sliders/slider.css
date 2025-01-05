@@ -1,0 +1,14 @@
+.swiper .swiper-pagination-bullet {
+  background: gray;
+}
+
+/* Active bullet color */
+.swiper .swiper-pagination-bullet-active {
+  background: white; /* Change to your desired color */
+}
+
+/* Optional: Bullet size */
+.swiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+}
