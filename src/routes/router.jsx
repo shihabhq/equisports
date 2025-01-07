@@ -11,6 +11,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NotFound from "../layouts/NotFound";
 import MyProductsTable from "../pages/MyProductsTable";
+import AboutUs from "../pages/About";
+import Feedbacks from "../pages/Feedbacks";
 
 const router = createBrowserRouter([
   {
@@ -21,8 +23,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-        loader: () =>
-          fetch("https://server-pi-lilac-98.vercel.app/home-products"),
       },
       {
         path: "/add-product",
@@ -43,8 +43,14 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: <AllEquipmentsPage />,
-        loader: () =>
-          fetch("https://server-pi-lilac-98.vercel.app/all-products"),
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
+      },
+      {
+        path: "/feedbacks",
+        element: <Feedbacks />,
       },
       {
         path: "/product-details/:id",

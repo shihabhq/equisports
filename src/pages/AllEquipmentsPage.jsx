@@ -1,13 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../shared/Header";
 import { useLoaderData } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import EquipmentSingleRow from "../components/Home/allEquipments/EquipmentSingleRow";
+import ProductCard from "../shared/ProductCard";
+import Loading from "../shared/Loading";
 
 const AllEquipmentsPage = () => {
-  const products = useLoaderData();
 
+  const [products, setProducts] = useState([]);
   const [sortedProducts, setSortedProducts] = useState(products);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    const fetchProducts = async () => {
+      const response = await fetch(
+        "https://server-pi-lilac-98.vercel.app/all-products"
+      );
+      const products = await response.json();
+      setProducts(products);
+      setLoading(false);
+    };
+    fetchProducts();
+  }, []);
+  useEffect(()=>{setSortedProducts(products)},[products])
+
+  if (loading) {
+    return <Loading />;
+  }
 
   if (!products) {
     return <Header text={"No Products Found"} />;
@@ -28,35 +48,24 @@ const AllEquipmentsPage = () => {
           Sort Price
         </button>
       </div>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:text-gray-400">
-            <tr>
-              <th scope="col" className="px-6 py-3">
-                Product name
-              </th>
-
-              <th scope="col" className="px-6 py-3">
-                Category
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Rating
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Price
-              </th>
-
-              <th scope="col" className="px-6 py-3">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {sortedProducts.map((product) => {
-              return <EquipmentSingleRow key={product._id} product={product} />;
-            })}
-          </tbody>
-        </table>
+      <div className="relative mt-8 overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+          {sortedProducts.map((product) => {
+            return (
+              <ProductCard
+                products={products}
+                key={product?._id}
+                _id={product?._id}
+                description={product?.description}
+                image={product?.image}
+                isPrivate={false}
+                itemName={product?.productName}
+                price={product?.price}
+                rating={product?.rating}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const upDownAnimation = keyframes`
 
 const SneakerSlider = () => {
   return (
-    <div className="w-full h-[90vh] bg-gradient-to-r from-orange-400 to-yellow-600">
+    <div className="w-full h-[70vh] bg-gradient-to-r from-orange-400 to-yellow-600">
       <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 w-[95%] mx-auto lg:w-[80%] h-full">
         <div className="basis-2/5 content-center">
           <h1 className="text-4xl lg:text-6xl text-white font-bold">

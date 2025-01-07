@@ -1,11 +1,11 @@
 import "./slider.css";
 
-import discountBanner from "../../../assets/discountbanner.jpg";
+import discountBanner from "../../../assets/gymImg.png";
 
 const MotivatingSlider = () => {
   return (
     <div
-      className="motivating-slide text-center flex flex-col items-center justify-center gap-6 h-[90vh] bg-cover bg-center"
+      className="motivating-slide text-center flex flex-col items-center justify-center gap-6 h-[70vh] bg-cover bg-center"
       style={{ backgroundImage: `url(${discountBanner})` }}>
       <h1 className="text-3xl tablet:text-5xl font-bold text-white">
         Get Started to build up the Real you

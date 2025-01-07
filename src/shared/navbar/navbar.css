@@ -12,3 +12,7 @@ li a {
   text-decoration: underline;
   transform: translateY(5px);
 }
+
+.horizontal-list a{
+  font-size: 14px;
+}

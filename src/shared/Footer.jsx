@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -14,6 +15,20 @@ const Footer = () => {
         </h2>
         <p>123 assertive Lane, Beside New Hospital, Dhaka 445</p>
         <p> call: 01715-123456</p>
+      </div>
+      <div className="flex gap-6 justify-center flex-wrap">
+        <Link to={"/home"} className="hover:underline">
+          Home
+        </Link>
+        <Link to={"/about"} className=" hover:underline">
+          About Us
+        </Link>
+        <Link to={"/feedbacks"} className="hover:underline">
+          Feedbacks
+        </Link>
+        <Link to="/products" className=" hover:underline">
+          All Sports Equipment
+        </Link>
       </div>
       <div className="flex gap-4 items-center justify-center mt-8">
         <a href="https://www.facebook.com" target="_blank">
@@ -44,8 +59,8 @@ const Footer = () => {
       <div>
         <p>
           <span>
-            Copyright © {new Date().getFullYear()} - All right reserved by ACME
-            Industries Ltd
+            Copyright © {new Date().getFullYear()} - All right reserved by
+            EquiSports ltd.
           </span>
         </p>
       </div>
