@@ -19,7 +19,7 @@ const SneakerSlider = () => {
           <h1 className="text-4xl lg:text-6xl text-white font-bold">
             Limited Fancy <br /> Sneakers available
           </h1>
-          <button className="mt-4 btn btn-white text-xl">Buy Now</button>
+          {/* <button className="mt-4 btn btn-white text-xl">Buy Now</button> */}
         </div>
         <div className="basis-1/2">
           <Fade

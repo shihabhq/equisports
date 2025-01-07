@@ -1,5 +1,6 @@
 import jerseaybg from "../../../assets/jerseybg.jpg";
 import jersey from "../../../assets/jersey.png";
+import { Link } from "react-router-dom";
 
 const JerseaySlider = () => {
   return (
@@ -15,9 +16,11 @@ const JerseaySlider = () => {
           <h2 className="text-lg md:text-2xl font-medium">
             Starting from 45$ only
           </h2>
-          <button className="btn btn-outline text-white text-lg">
+          <Link
+            to={"/product-details/6754f0f9743a01a873873ad9"}
+            className="btn btn-outline text-white text-lg">
             See Details
-          </button>
+          </Link>
         </div>
         <div className="basis-1/2">
           <img src={jersey} alt="" className="w-full" />

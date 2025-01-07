@@ -1,6 +1,7 @@
 import "./slider.css";
 
 import discountBanner from "../../../assets/gymImg.png";
+import { Link } from "react-router-dom";
 
 const MotivatingSlider = () => {
   return (
@@ -13,9 +14,9 @@ const MotivatingSlider = () => {
       <h2 className="text-xl tablet:text-3xl text-white">
         With More Than 60% Offer
       </h2>
-      <a className="btn btn-outline mt-4 px-6 py-2  font-semibold rounded-md text-white hover:bg-white hover:text-black">
+      <Link to={'/products'} className="btn btn-outline mt-4 px-6 py-2  font-semibold rounded-md text-white hover:bg-white hover:text-black">
         View More
-      </a>
+      </Link>
     </div>
   );
 };
