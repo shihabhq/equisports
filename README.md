@@ -44,6 +44,7 @@ EquiSports is an Ecommerce site for the sports lover and athletics enthusiasts p
 
 ### Project Structure
 
+```plaintext
 ├── README.md
 ├── dist
 |  ├── assets
@@ -71,6 +72,7 @@ EquiSports is an Ecommerce site for the sports lover and athletics enthusiasts p
 ├── tailwind.config.js
 ├── vite.config.js
 └── yarn.lock
+```
 
 ## Demo
 
